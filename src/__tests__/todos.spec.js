@@ -8,8 +8,8 @@ describe('Todos', () => {
     const userResponse = await request(app)
       .post('/users')
       .send({
-        name: 'John Doe',
-        username: 'user1'
+        name: 'Luan Sousa',
+        username: 'Luan Dev'
       });
 
     const todoDate = new Date();
@@ -17,7 +17,7 @@ describe('Todos', () => {
     const todoResponse = await request(app)
       .post('/todos')
       .send({
-        title: 'test todo',
+        title: 'Fazer Café',
         deadline: todoDate
       })
       .set('username', userResponse.body.username);
@@ -37,8 +37,8 @@ describe('Todos', () => {
     const userResponse = await request(app)
       .post('/users')
       .send({
-        name: 'John Doe',
-        username: 'user2'
+        name: 'Luan Sousa',
+        username: 'Luan Dev1'
       });
 
     const todoDate = new Date();
@@ -65,8 +65,8 @@ describe('Todos', () => {
     const userResponse = await request(app)
       .post('/users')
       .send({
-        name: 'John Doe',
-        username: 'user7'
+        name: 'Luan Dev',
+        username: 'Luan'
       });
 
     const todoDate = new Date();
@@ -74,7 +74,7 @@ describe('Todos', () => {
     const todoResponse = await request(app)
       .post('/todos')
       .send({
-        title: 'test todo',
+        title: 'Fazer Café',
         deadline: todoDate
       })
       .set('username', userResponse.body.username);
@@ -82,27 +82,13 @@ describe('Todos', () => {
     const response = await request(app)
       .put(`/todos/${todoResponse.body.id}`)
       .send({
-        title: 'update title',
+        title: 'Fazer Goibada',
         deadline: todoDate
       })
       .set('username', userResponse.body.username);
 
     expect(response.body).toMatchObject({
-      title: 'update title',
-      deadline: todoDate.toISOString(),
-      done: false
-    });
-
-    const getAllTodosResponse = await request(app)
-      .get((`/todos/`))
-      .set('username', userResponse.body.username);
-    
-    expect(
-      getAllTodosResponse.body.find(
-        (todo)=>todo.id === todoResponse.body.id
-      ))
-    .toMatchObject({
-      title: 'update title',
+      title: 'Fazer Goibada',
       deadline: todoDate.toISOString(),
       done: false
     });
@@ -112,8 +98,8 @@ describe('Todos', () => {
     const userResponse = await request(app)
       .post('/users')
       .send({
-        name: 'John Doe',
-        username: 'user8'
+        name: 'Luan Sousa',
+        username: 'Luan Sousa1'
       });
 
     const todoDate = new Date();
@@ -121,7 +107,7 @@ describe('Todos', () => {
     const response = await request(app)
       .put('/todos/invalid-todo-id')
       .send({
-        title: 'update title',
+        title: 'Fazer Bolo',
         deadline: todoDate
       })
       .set('username', userResponse.body.username)
@@ -134,8 +120,8 @@ describe('Todos', () => {
     const userResponse = await request(app)
       .post('/users')
       .send({
-        name: 'John Doe',
-        username: 'user3'
+        name: 'Luan Sousa',
+        username: 'Luan Dev2'
       });
 
     const todoDate = new Date();
@@ -143,7 +129,7 @@ describe('Todos', () => {
     const todoResponse = await request(app)
       .post('/todos')
       .send({
-        title: 'test todo',
+        title: 'Fazer Bolo',
         deadline: todoDate
       })
       .set('username', userResponse.body.username);
@@ -162,8 +148,8 @@ describe('Todos', () => {
     const userResponse = await request(app)
       .post('/users')
       .send({
-        name: 'John Doe',
-        username: 'user4'
+        name: 'Luan Sousa',
+        username: 'Luan Dev3'
       });
 
     const response = await request(app)
@@ -178,8 +164,8 @@ describe('Todos', () => {
     const userResponse = await request(app)
       .post('/users')
       .send({
-        name: 'John Doe',
-        username: 'user5'
+        name: 'Luan Sousa',
+        username: 'Luan Dev4'
       });
 
     const todoDate = new Date();
@@ -187,7 +173,7 @@ describe('Todos', () => {
     const todo1Response = await request(app)
       .post('/todos')
       .send({
-        title: 'test todo',
+        title: 'Fazer Bolo',
         deadline: todoDate
       })
       .set('username', userResponse.body.username);
@@ -208,8 +194,8 @@ describe('Todos', () => {
     const userResponse = await request(app)
       .post('/users')
       .send({
-        name: 'John Doe',
-        username: 'user6'
+        name: 'Luan Sousa',
+        username: 'Luan Dev5'
       });
 
     const response = await request(app)
